@@ -5,11 +5,16 @@ namespace SnakeSimple.Scripts.GameObj
 {
     public class Food : MonoBehaviour
     {
-        public UnityEvent OnEaten = new UnityEvent();
+        public UnityEvent OnEaten;
 
-        private void OnTriggerEnter(Collider other)
+        public void Awake()
         {
-            if( other.tag.Equals("Player")) OnEaten.Invoke();
+            //OnEaten = new UnityEvent();
+        }
+
+        public void OnTriggerEnter(Collider other)
+        {
+            if( other.transform.tag.Equals("Player")) OnEaten.Invoke();
         }
     }
 }

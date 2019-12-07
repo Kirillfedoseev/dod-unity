@@ -20,9 +20,7 @@ namespace SnakeSimple.Scripts.GameObj {
             if (_isGrow)
             {
                 var head = Instantiate(Body[0], transform);
-                head.transform.position = Body[0].transform.position;
-                
-                var vect = head.transform.position;
+                var vect = Body[0].transform.position;
                 switch (direction)
                 {
                     case SnakeDirection.Up:

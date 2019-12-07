@@ -6,10 +6,14 @@ namespace SnakeSimple.Scripts.GameObj
     public class Obstacle : MonoBehaviour
     {
 
-        public UnityEvent OnDeath = new UnityEvent();
+        public UnityEvent OnDeath;
 
+        public void Awake()
+        {
+            //OnDeath = new UnityEvent();
+        }
 
-        public void OnCollisionEnter(Collision other)
+        public void OnTriggerEnter(Collider other)
         {
             if (other.transform.tag.Equals("Player")) OnDeath.Invoke();
         }
